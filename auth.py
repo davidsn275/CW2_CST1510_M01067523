@@ -163,6 +163,7 @@ def display_menu():
 def main():
     """Main program loop."""
     print("\nWelcome to the Week 7 Authentication System!")
+    
     while True:
         display_menu()
         choice = input("\nPlease select an option (1-3): ").strip()
@@ -186,6 +187,10 @@ def main():
                 print(f"Error: {error_msg}")
                 continue
             
+            # Show password strength
+            strength = check_password_strength(password)
+            print(f"Password strength: {strength}")
+
             # Confirm password
             password_confirm = input("Confirm password: ").strip()
             if password != password_confirm:
@@ -205,7 +210,8 @@ def main():
             if login_user(username, password):
                 print("\nYou are now logged in.")
                 print("(In a real application, you would now access the dashboard)")
-                # Optional: Ask if they want to logout or exit
+
+                # Ask if they want to logout or exit
                 input("\nPress Enter to return to main menu...")
         
         elif choice == '3':
@@ -218,6 +224,5 @@ def main():
             print("\nError: Invalid option. Please select 1, 2, or 3.")
 
 
-# TEMPORARY TEST CODE - Remove after testing
 if __name__ == "__main__":
     main()
