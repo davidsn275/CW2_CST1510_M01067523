@@ -1,2 +1,4 @@
 git log
 bcrypt==4.2.0
+pandas==2.3.3
+bcrypt==5.0.0
