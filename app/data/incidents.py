@@ -2,10 +2,9 @@ import pandas as pd
 from app.data.db import connect_database
 
 # CREATE 
-
 def insert_incident(date, incident_type, severity, status, description, reported_by=None):
     """
-    CREATE: Insert a new cyber incident into the database.
+    Insert a new cyber incident into the database.
     """
     # Connect to database
     conn = connect_database()
@@ -30,10 +29,9 @@ def insert_incident(date, incident_type, severity, status, description, reported
 
 
 # READ
-
 def get_all_incidents():
     """
-    READ: Get all incidents from the database.
+    Get all incidents from the database.
     """
     # Connect to database
     conn = connect_database()
@@ -51,7 +49,7 @@ def get_all_incidents():
 
 def get_incident_by_id(incident_id):
     """
-    READ: Get a specific incident by ID.
+    Get a specific incident by ID.
     """
     # Connect to database
     conn = connect_database()
@@ -72,7 +70,7 @@ def get_incident_by_id(incident_id):
 
 def get_incidents_by_severity(severity):
     """
-    READ: Get all incidents with specific severity.
+    Get all incidents with specific severity.
     """
     # Connect to database
     conn = connect_database()
@@ -94,7 +92,7 @@ def get_incidents_by_severity(severity):
 
 def update_incident_status(incident_id, new_status):
     """
-    UPDATE: Change the status of an incident.
+    Change the status of an incident.
     """
     # Connect to database
     conn = connect_database()
