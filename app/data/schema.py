@@ -23,6 +23,7 @@ def create_users_table(conn):
 
     print("Users table created successfully!")
 
+
 def create_cyber_incidents_table(conn):
     """
     Create the cyber_incidents table.

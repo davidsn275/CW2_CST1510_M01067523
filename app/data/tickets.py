@@ -1,5 +1,20 @@
 import pandas as pd
+from pathlib import Path
 from app.data.db import connect_database
+
+DATA_DIR = Path("DATA")
+
+def load_tickets_csv():
+    """Load tickets from CSV file."""
+    csv_file = DATA_DIR / "it_tickets.csv"
+    if csv_file.exists():
+        return pd.read_csv(csv_file)
+    return pd.DataFrame()
+
+def save_tickets_csv(df):
+    """Save tickets to CSV file."""
+    DATA_DIR.mkdir(exist_ok=True)
+    df.to_csv(DATA_DIR / "it_tickets.csv", index=False)
 
 def insert_ticket(ticket_id, priority, status, category, subject, description, created_date, assigned_to):
     """
@@ -27,8 +42,7 @@ def get_all_tickets():
     conn.close()
     return df
 
-# ==================== ANALYTICAL QUERIES ====================
-
+# ANALYTICAL QUERIES
 def get_tickets_by_priority_count(conn=None):
     """
     Count tickets by priority level.

@@ -1,7 +1,24 @@
 import pandas as pd
+from pathlib import Path
 from app.data.db import connect_database
 
-# CREATE 
+
+DATA_DIR = Path("DATA")
+
+def load_incidents_csv():
+    """Load incidents from CSV file."""
+    csv_file = DATA_DIR / "cyber_incidents.csv"
+    if csv_file.exists():
+        return pd.read_csv(csv_file)
+    return pd.DataFrame()
+
+
+def save_incidents_csv(df):
+    """Save incidents to CSV file."""
+    DATA_DIR.mkdir(exist_ok=True)
+    df.to_csv(DATA_DIR / "cyber_incidents.csv", index=False)
+
+# create 
 def insert_incident(date, incident_type, severity, status, description, reported_by=None):
     """
     Insert a new cyber incident into the database.
@@ -28,7 +45,8 @@ def insert_incident(date, incident_type, severity, status, description, reported
     return incident_id
 
 
-# READ
+
+# Read
 def get_all_incidents():
     """
     Get all incidents from the database.
@@ -88,7 +106,7 @@ def get_incidents_by_severity(severity):
     return df
 
 
-# UPDATE
+# Update
 
 def update_incident_status(incident_id, new_status):
     """
@@ -118,35 +136,8 @@ def update_incident_status(incident_id, new_status):
         return False
 
 
-def update_incident_severity(incident_id, new_severity):
-    """
-    UPDATE: Change the severity of an incident.
-    """
-    # Connect to database
-    conn = connect_database()
-    cursor = conn.cursor()
-    
-    # Update incident severity
-    cursor.execute(
-        "UPDATE cyber_incidents SET severity = ? WHERE id = ?",
-        (new_severity, incident_id)
-    )
-    
-    # Save changes
-    conn.commit()
-    
-    # Check if incident was found and updated
-    if cursor.rowcount > 0:
-        print(f"✅ Incident #{incident_id} severity updated to '{new_severity}'")
-        conn.close()
-        return True
-    else:
-        print(f"❌ Incident #{incident_id} not found")
-        conn.close()
-        return False
 
-
-# DELETE 
+# Delete 
 
 def delete_incident(incident_id):
     """
@@ -172,8 +163,8 @@ def delete_incident(incident_id):
         conn.close()
         return False
     
-    # ==================== ANALYTICAL QUERIES ====================
 
+#analytic queries
 def get_incidents_by_severity_count(conn=None):
     """
     Count incidents by severity level.
@@ -190,6 +181,7 @@ def get_incidents_by_severity_count(conn=None):
         ORDER BY count DESC
     """, conn)
     
+
     conn.close()
     return df
 
@@ -249,6 +241,7 @@ def get_critical_incidents(conn=None):
         ORDER BY date DESC
     """, conn)
     
+
     conn.close()
     return df
 
@@ -304,5 +297,6 @@ def get_incidents_count_total(conn=None):
         SELECT COUNT(*) FROM cyber_incidents
     """).fetchone()
     
+
     conn.close()
     return result[0]
