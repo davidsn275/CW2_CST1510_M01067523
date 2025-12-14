@@ -175,6 +175,3 @@ with tab_register:
                 st.error(f"❌ Error: {str(e)}")
 
 
-# Footer
-st.markdown("---")
-st.caption("🔒 Secured with enterprise-grade encryption")

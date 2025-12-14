@@ -69,7 +69,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.stop()
 
 # Dashboard header
-st.title("🔒 Cybersecurity Command Center")
+st.title("🔒 Cybersecurity Command Centre")
 st.caption("Real-time threat monitoring and incident management")
 
 # Load incidents using DatabaseManager and convert to SecurityIncident objects
@@ -205,7 +205,6 @@ with tab3:
 # Tab 4: Analytics & Insights
 with tab4:
     st.subheader("🎯 High-Value Security Analysis")
-    st.info("Problem Statement: The security team is facing a targeted surge in Phishing incidents, leading to a growing backlog of high-severity, unresolved cases. Identify threat trends and analyze response bottlenecks.")
     
     if len(df_incidents) > 0:
         # Analysis 1: Phishing Surge Detection
@@ -334,7 +333,7 @@ Note: You have access to complete details including incident IDs, dates, types, 
 Responsibilities:
 - Answer questions about specific incidents using their ID, status, description, and other details
 - Provide detailed analysis of incidents including their current status and descriptions
-- Analyze threats and provide MITRE ATT&CK references when relevant
+- Analyse threats and provide MITRE ATT&CK references when relevant
 - Give actionable remediation recommendations based on incident details
 - When asked about a specific incident, provide its full details including status and description
 
@@ -394,7 +393,7 @@ Always refer to actual incident data when answering questions. Be specific and d
         # Welcome message
         if len(ai.get_history()) == 0:
             st.write("👋 Welcome! I'm your Security Assistant")
-            st.write("I can analyze incidents, explain threats, and provide security recommendations.")
+            st.write("I can analyse incidents, explain threats, and provide security recommendations.")
         
         # Display chat history
         for msg in ai.get_history():

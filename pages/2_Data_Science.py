@@ -219,7 +219,6 @@ with tab3:
 # Tab 4: Analytics & Insights
 with tab4:
     st.subheader("🎯 High-Value Data Governance Analysis")
-    st.info("Problem Statement: The team must manage a growing catalog of large datasets uploaded by various departments. Analyze resource consumption and data source dependency to recommend data governance and archiving policies.")
     
     if len(df_datasets) > 0:
         # Analysis 1: Resource Consumption Analysis
@@ -248,7 +247,7 @@ with tab4:
             source_storage = source_storage.sort_values('Total Storage (MB)', ascending=False)
             st.dataframe(source_storage, width='stretch', hide_index=True)
             
-            # Visualize storage by source
+            # Visualise storage by source
             if len(source_storage) > 0:
                 st.bar_chart(source_storage.set_index('Data Source')['Total Storage (MB)'], color="#3b82f6", height=300)
         

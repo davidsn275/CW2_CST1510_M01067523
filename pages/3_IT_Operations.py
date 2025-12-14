@@ -71,7 +71,7 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
 
 
 # Dashboard header
-st.title("💻 IT Operations Center")
+st.title("💻 IT Operations Centre")
 st.caption("Streamlined ticket management and support tracking")
 
 
@@ -213,7 +213,6 @@ with tab3:
 # Tab 4: Analytics & Insights
 with tab4:
     st.subheader("🎯 High-Value IT Operations Analysis")
-    st.info("Problem Statement: The IT support team is struggling with slow resolution times. Pinpoint staff performance anomalies and identify process stage bottlenecks causing delays.")
     
     if len(df_tickets) > 0:
         # Analysis 1: Staff Performance Analysis
@@ -234,7 +233,7 @@ with tab4:
             st.markdown("**Ticket Distribution by Staff Member:**")
             st.dataframe(staff_analysis, width='stretch', hide_index=True)
             
-            # Visualize staff workload
+            # Visualise staff workload
             if len(staff_analysis) > 0:
                 st.markdown("**Staff Workload (Total Tickets):**")
                 st.bar_chart(staff_analysis.set_index('Staff Member')['Total Tickets'], color="#10b981", height=250)
@@ -258,7 +257,7 @@ with tab4:
         st.markdown("**Ticket Distribution by Status (Bottleneck Identification):**")
         st.dataframe(status_bottleneck, width='stretch', hide_index=True)
         
-        # Visualize status distribution
+        # Visualise status distribution
         if len(status_bottleneck) > 0:
             st.bar_chart(status_bottleneck.set_index('Status')['Ticket Count'], color="#06b6d4", height=300)
         
@@ -386,7 +385,7 @@ Always refer to actual ticket data when answering questions. Be specific and det
         # welcome message
         if len(ai.get_history()) == 0:
             st.write("👋 Welcome! I'm your IT Support Assistant")
-            st.write("I can help troubleshoot issues, prioritize tickets, and provide solutions.")
+            st.write("I can help troubleshoot issues, prioritise tickets, and provide solutions.")
         
         # Display chat history
         for msg in ai.get_history():

@@ -6,25 +6,25 @@ Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
 
 ## Project Description
 
-A comprehensive multi-domain intelligence platform built with Streamlit that provides secure access to analytics dashboards across cybersecurity, data science, and IT operations domains. The platform features user authentication, interactive dashboards, data visualization, and AI-powered assistance.
+A comprehensive multi-domain intelligence platform built with Streamlit that provides secure access to analytics dashboards across cybersecurity, data science, and IT operations domains. The platform features user authentication, interactive dashboards, data visualisation, and AI-powered assistance.
 
 ## Features
 
 ### 🔐 Authentication System
 - Secure user registration and login
-- Password hashing using bcrypt
+- Password hashing using SHA256
 - Session management with Streamlit
 - User data persistence in SQLite database
 
 ### 🔒 Cybersecurity Incidents Dashboard
 - View and manage security incidents
-- Interactive data visualization
+- Interactive data visualisation
 - Filter and search capabilities
 - Incident tracking and analysis
 
 ### 📊 Data Science Dashboard
 - Dataset management and exploration
-- Data visualization tools
+- Data visualisation tools
 - Statistical analysis capabilities
 - AI-powered insights
 
@@ -44,7 +44,7 @@ A comprehensive multi-domain intelligence platform built with Streamlit that pro
 - **Frontend Framework:** Streamlit
 - **Database:** SQLite
 - **Data Processing:** Pandas
-- **Authentication:** bcrypt password hashing
+- **Authentication:** SHA256 password hashing
 - **AI Integration:** Google Generative AI
 
 ### Project Structure
@@ -103,7 +103,7 @@ CW2_CST1510_M01067523/
    Required packages:
    - `streamlit` - Web application framework
    - `pandas` - Data manipulation and analysis
-   - `bcrypt` - Password hashing (if used)
+   - `bcrypt` - Password hashing
    - `google-generativeai` - AI assistant integration
 
 3. **Initialize the database:**
@@ -132,7 +132,7 @@ CW2_CST1510_M01067523/
 - **IT Operations Dashboard:** Manage IT tickets and operations
 
 ### Features Overview
-- **Interactive Dashboards:** All dashboards feature interactive visualizations and filtering
+- **Interactive Dashboards:** All dashboards feature interactive visualisations and filtering
 - **Data Management:** Add, edit, and delete records through intuitive interfaces
 - **AI Assistance:** Get AI-powered insights and assistance across all domains
 - **Secure Access:** All features require user authentication

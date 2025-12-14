@@ -57,7 +57,7 @@ class SecurityIncident:
         Convert incident object to a dictionary.
         Used when converting to pandas DataFrame or sending as JSON response.
         Key names match the database column names for consistency.
-        Allows easy serialization for API responses and data storage.
+        Allows easy serialisation for API responses and data storage.
         """
         return {
             "id": self.__id,
